@@ -7,4 +7,4 @@ import { RepositoryService } from './repository.service';
   controllers: [RepositoriesController],
   providers: [RepositoryService],
 })
-export class AppModule {}
+export class RepositoryModule {}
