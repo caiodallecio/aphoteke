@@ -19,25 +19,45 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/repositories (GET) Default', () => {
-    return request(app.getHttpServer()).get('/repositories').expect(200);
+  describe('/repositories (GET) Default', () => {
+    it('Success', () => {
+      return request(app.getHttpServer()).get('/repositories').expect(200);
+    });
   });
 
-  it('/repositories (GET) Limit', () => {
-    return request(app.getHttpServer())
-      .get('/repositories?limit=20')
-      .expect(200);
+  describe('/repositories (GET) Limit', () => {
+    it('Success', () => {
+      return request(app.getHttpServer())
+        .get('/repositories?limit=20')
+        .expect(200);
+    });
+
+    it('Fail', () => {
+      return request(app.getHttpServer())
+        .get('/repositories?limit=clovis')
+        .expect(400);
+    });
   });
 
-  it('/repositories (GET) Language', () => {
-    return request(app.getHttpServer())
-      .get('/repositories?language=python&limit=1')
-      .expect(200);
+  describe('/repositories (GET) Language', () => {
+    it('Success', () => {
+      return request(app.getHttpServer())
+        .get('/repositories?language=python')
+        .expect(200);
+    });
   });
 
-  it('/repositories (GET) StartDate', () => {
-    return request(app.getHttpServer())
-      .get('/repositories?startDate=2020-06-29T01:03:54Z&limit=1')
-      .expect(200);
+  describe('/repositories (GET) StartTime', () => {
+    it('Success', () => {
+      return request(app.getHttpServer())
+        .get('/repositories?startDate=2020-06-29T01:03:54Z')
+        .expect(200);
+    });
+
+    it('Fail', () => {
+      return request(app.getHttpServer())
+        .get('/repositories?startDate=clovis')
+        .expect(400);
+    });
   });
 });
