@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
-import { AppModule } from '../src/repository.module';
+import { AppModule } from '../src/repository/repository.module';
 import { disableFetchMocks } from 'jest-fetch-mock';
 import { configureApp } from '../src/app';
 
