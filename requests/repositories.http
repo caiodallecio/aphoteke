@@ -1,0 +1,17 @@
+@url = http://localhost:3000
+
+###
+GET {{url}}/repositories
+content-type: application/json
+
+###
+GET {{url}}/repositories?limit=20
+content-type: application/json
+
+###
+GET {{url}}/repositories?language=python&limit=1
+content-type: application/json
+
+###
+GET {{url}}/repositories?startDate=2020-06-29T01:03:54Z&limit=1
+content-type: application/json
